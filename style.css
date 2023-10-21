@@ -1,0 +1,306 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3.5rem;    
+  --black-color: #000000; /*hsl(220, 24%, 12%);*/
+  --black-color-light: hsl(220, 24%, 15%);
+  --black-color-lighten: hsl(220, 20%, 18%);
+  --white-color: #fff;
+  --body-color: #2B2B2B; //hsl(220, 100%, 97%);
+  --clur: #222327;
+  --body-font: "Montserrat", sans-serif;
+  --normal-font-size: .938rem;
+  --font-regular: 400;
+  --font-semi-bold: 600;
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1024px) {
+  :root {
+    --normal-font-size: 1rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  color: var(--white-color);
+  height: 100vh;
+  margin: 0;
+  padding:2rem 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    pointer-event: none;
+}
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+.container {
+  max-width: 1120px;
+  margin-inline: 1.5rem;
+}
+
+/*=============== HEADER ===============*/
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #151F28;
+  box-shadow: 0 2px 16px hsla(220, 32%, 8%, .3);
+  z-index: var(--z-fixed);
+}
+
+/*=============== NAV ===============*/
+.nav {
+  height: var(--header-height);
+}
+
+.nav__logo, 
+.nav__burger, 
+.nav__close {
+  color: var(--white-color);
+}
+
+.nav__data {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__logo {
+  display: inline-flex;
+  margin-left: 10px;
+  align-items: center;
+  column-gap: .25rem;
+  font-weight: var(--font-semi-bold);
+  /* Color highlighting when pressed on mobile devices */
+  /*-webkit-tap-highlight-color: transparent;*/
+}
+
+.nav__logo i {
+  font-weight: initial;
+  font-size: 1.25rem;
+}
+
+.nav__toggle {
+  position: relative;
+  width: 32px;
+  height: 32px;
+}
+
+.nav__burger, 
+.nav__close {
+  position: absolute;
+  width: max-content;
+  height: max-content;
+  inset: 0;
+  margin: auto;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: opacity .1s, transform .4s;
+}
+
+.nav__close {
+  opacity: 0;
+}
+
+/* Navigation for mobile devices */
+@media screen and (max-width: 1118px) {
+  .nav__menu {
+    position: absolute;
+    left: 0;
+    top: 2.5rem;
+    width: 100%;
+    height: calc(100vh - 3.5rem);
+    overflow: auto;
+    pointer-events: none;
+    opacity: 0;
+    transition: top .4s, opacity .3s;
+  }
+  .nav__menu::-webkit-scrollbar {
+    width: 0;
+  }
+  .nav__list {
+    background-color: var(--black-color);
+    padding-top: 1rem;
+  }
+}
+
+.nav__link {
+  color: var(--white-color);
+  background-color: var(--black-color);
+  font-weight: var(--font-semi-bold);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color .3s;
+}
+
+.nav__link:hover {
+  background-color: var(--black-color-light);
+}
+li .academy { 
+  position: relative; 
+}
+li .academy::before { 
+  content: "Free"; 
+  position: absolute; 
+  background: #f00;
+  padding: 2px 4px;
+  border-radius: 5px;
+  left: 8rem; 
+  top: 1rem; 
+  font-size: 8px; 
+  color: #ffffff;
+}
+.nav-right {
+    font-size: 15px;
+    margin-right: 10px;
+}
+.nav-right a {
+    text-decoration: none;
+    color: #ccc;
+}
+.nav-right {
+    width: 100%;
+    height: 50px;
+    padding: 0px 21px;
+    background: none;
+    position: fixed;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    top: 0px;
+    left: 0px;
+}
+.noLecture {
+    width: 250px;
+    height: 250px;
+    background: #fff;
+    border-radius: 12px;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.video-container {
+    width: 25%;
+    max-width: 200px;
+    max-height: 200px;
+    height: 12%;
+    background: rgba(0, 0, 0, 1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    border: 1.5px solid #fff;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+    font-size: 20px;
+    color: #a1a1a1;
+    position: fixed;
+    z-index: 10;
+    bottom: 100px;
+    right: 20px;
+}
+.video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    pointer-event: none;
+}
+.chat-container {
+    max-width: 400px;
+    width: 42%;
+    margin: 20px auto;
+    background: none;
+    border: none;
+    border-radius: 5px;
+    padding: 0px;
+    color: #fff;
+    font-size: 12px;
+    position: fixed;
+    z-index: 6;
+    left: 0;
+    bottom: 30px;
+}
+
+.chat-header {
+    background-color: #EEBA2B;
+    padding: 10px;
+    font-weight: bold;
+    border: 2px solid #212121;
+    border-radius: 6px;
+}
+
+.chat-history {
+    max-height: 93px;
+    overflow-y: scroll;
+    padding: 10px;
+    border: none;
+    margin: 10px 0;
+}
+.chat-input {
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    background: #fff;
+}
+.chat-input input[type="text"] {
+    flex: 1;
+    padding: 5px;
+    border: none;
+    border-radius: 3px 0 0 3px;
+    background: none;
+}
+.chat-input input[type="text"]::placeholder {
+    color: #a1a1a1;
+}
+.chat-input input:focus {
+    border: none;
+    outline: none;
+}
+.navigation {
+    width: 350px;
+    height: 50px;
+    background: #fff;
+    opacity: 0.7;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    bottom: 5px;
+}
+.navigation .chat-input {
+    display: flex;
+    width: 300px;
+}
